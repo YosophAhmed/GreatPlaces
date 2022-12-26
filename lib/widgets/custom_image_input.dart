@@ -37,6 +37,9 @@ class _CustomImageInputState extends State<CustomImageInput> {
                 )
               : const Text(
                   'No Image Taken',
+                  style: TextStyle(
+                    color: Colors.indigo,
+                  ),
                   textAlign: TextAlign.center,
                 ),
         ),
