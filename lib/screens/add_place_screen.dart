@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:great_places/widgets/custom_button.dart';
 import 'package:great_places/widgets/custom_image_input.dart';
 import 'package:great_places/widgets/custom_text_field.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'dart:io';
+
+import '../providers/places.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   static const String routeName = 'AddPlaceScreen';
@@ -14,8 +18,27 @@ class AddPlaceScreen extends StatefulWidget {
 }
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
-
   final titleController = TextEditingController();
+
+  File? _pickedImage;
+
+  void selectImage(File pickedImage) {
+    _pickedImage = pickedImage;
+  }
+
+  void savePlace() {
+    if (titleController.text.isEmpty || _pickedImage == null) {
+      return;
+    }
+    Provider.of<Places>(
+      context,
+      listen: false,
+    ).addPlace(
+      title: titleController.text,
+      image: _pickedImage!,
+    );
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +65,9 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     SizedBox(
                       height: 4.h,
                     ),
-                    const CustomImageInput(),
+                    CustomImageInput(
+                      onSelectImage: selectImage,
+                    ),
                   ],
                 ),
               ),
@@ -52,7 +77,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
             label: 'Add Place',
             color: Colors.amberAccent,
             height: 60,
-            onTap: () {},
+            onTap: savePlace,
           ),
         ],
       ),
