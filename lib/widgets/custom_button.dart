@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
@@ -31,13 +30,10 @@ class CustomButton extends StatelessWidget {
           // borderRadius: BorderRadius.circular(8.sp),
         ),
         alignment: Alignment.center,
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+        child: const Icon(
+          Icons.add_box_outlined,
+          size: 50,
+          color: Colors.white,
         ),
       ),
     );
