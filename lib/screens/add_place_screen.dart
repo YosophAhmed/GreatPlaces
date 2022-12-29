@@ -43,9 +43,25 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Add a new place',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24.sp,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 36,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Column(
@@ -58,7 +74,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                 child: Column(
                   children: [
                     CustomTextField(
-                      hintText: 'Title',
+                      hintText: 'Place Name',
                       controller: titleController,
                       color: Colors.indigo,
                     ),
@@ -75,7 +91,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
           ),
           CustomButton(
             label: 'Add Place',
-            color: Colors.amberAccent,
+            color: Colors.indigo,
             height: 60,
             onTap: savePlace,
           ),

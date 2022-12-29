@@ -13,6 +13,7 @@ class PlacesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text(
           'Great Places',
@@ -40,24 +41,47 @@ class PlacesListScreen extends StatelessWidget {
                         return child!;
                       } else {
                         return ListView.builder(
-                          itemBuilder: (context, index) => ListTile(
-                            title: Text(
-                              provider.items[index].title,
+                          itemBuilder: (context, index) => Padding(
+                            padding: EdgeInsets.all(8.sp),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 25.h,
+                                  width: 25.h,
+                                  child: Image.file(
+                                    provider.items[index].image,
+                                    fit: BoxFit.fill,
+                                    width: double.infinity,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 3.w,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    provider.items[index].title,
+                                    style: TextStyle(
+                                      fontSize: 30.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
                             ),
-                            leading: CircleAvatar(
-                              backgroundImage: FileImage(
-                                provider.items[index].image,
-                              ),
-                            ),
-                            onTap: () {},
                           ),
                           itemCount: provider.items.length,
                         );
                       }
                     },
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         'No Places yet, Start adding some places!',
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

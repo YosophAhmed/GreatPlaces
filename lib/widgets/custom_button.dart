@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: const Icon(
-          Icons.add_box_outlined,
+          Icons.check_box,
           size: 50,
           color: Colors.white,
         ),
