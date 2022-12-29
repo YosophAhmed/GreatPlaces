@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:great_places/widgets/custom_elevated_button.dart';
 import 'package:sizer/sizer.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
@@ -61,10 +62,11 @@ class _CustomImageInputState extends State<CustomImageInput> {
                   fit: BoxFit.fill,
                   width: double.infinity,
                 )
-              : const Text(
+              : Text(
                   'No Image Taken',
                   style: TextStyle(
                     color: Colors.indigo,
+                    fontSize: 14.sp,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -72,18 +74,10 @@ class _CustomImageInputState extends State<CustomImageInput> {
         SizedBox(
           width: 2.w,
         ),
-        ElevatedButton(
-          onPressed: takeImage,
-          child: Row(
-            children: const [
-              Text(
-                'Take Image ',
-              ),
-              Icon(
-                Icons.camera,
-              ),
-            ],
-          ),
+        CustomElevatedButton(
+            onPressed: takeImage,
+            text: 'Take an image',
+            icon: Icons.camera,
         ),
       ],
     );
