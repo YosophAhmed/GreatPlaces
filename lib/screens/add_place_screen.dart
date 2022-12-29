@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:great_places/widgets/custom_button.dart';
 import 'package:great_places/widgets/custom_image_input.dart';
+import 'package:great_places/widgets/custom_location_input.dart';
 import 'package:great_places/widgets/custom_text_field.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -43,7 +44,6 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text(
           'Add a new place',
@@ -79,11 +79,15 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       color: Colors.indigo,
                     ),
                     SizedBox(
-                      height: 4.h,
+                      height: 2.h,
                     ),
                     CustomImageInput(
                       onSelectImage: selectImage,
                     ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    CustomLocationInput(),
                   ],
                 ),
               ),
