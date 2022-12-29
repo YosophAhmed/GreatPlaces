@@ -18,6 +18,7 @@ class GreatPlaces extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.indigo,
+              fontFamily: 'Roboto',
             ),
             routes: {
               PlacesListScreen.routeName : (context) => const PlacesListScreen(),
