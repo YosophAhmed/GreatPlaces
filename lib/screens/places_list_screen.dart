@@ -13,7 +13,6 @@ class PlacesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
       appBar: AppBar(
         title: Text(
           'Great Places',
@@ -62,10 +61,10 @@ class PlacesListScreen extends StatelessWidget {
                                   child: Text(
                                     provider.items[index].title,
                                     style: TextStyle(
-                                      fontSize: 30.sp,
+                                      fontSize: 22.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
                               ],
