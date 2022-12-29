@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:great_places/widgets/custom_elevated_button.dart';
 import 'package:sizer/sizer.dart';
+import 'package:location/location.dart';
 
 class CustomLocationInput extends StatefulWidget {
   const CustomLocationInput({Key? key}) : super(key: key);
@@ -11,6 +12,12 @@ class CustomLocationInput extends StatefulWidget {
 
 class _CustomLocationInputState extends State<CustomLocationInput> {
   String? previewImageUrl;
+
+  Future<void> getCurrentLocation() async {
+    final locationData = await Location().getLocation();
+    debugPrint(locationData.longitude.toString());
+    debugPrint(locationData.latitude.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +58,7 @@ class _CustomLocationInputState extends State<CustomLocationInput> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CustomElevatedButton(
-              onPressed: () {},
+              onPressed: getCurrentLocation,
               text: 'Current Location',
               icon: Icons.location_on,
             ),
